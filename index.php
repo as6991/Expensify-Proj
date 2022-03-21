@@ -1,11 +1,8 @@
 <?php
-function init () {
 if ( isset( $_POST['submit'] ) ) {
-        $firstname = $_REQUEST['user'];
-        $lastname = $_REQUEST['user_pass'];
+        $firstname = $_POST['user'];
+        $lastname = $_POST['user_pass'];
         echo 'Your name is ' . $lastname .' ' . $firstname;
 }
-}
-init();
 echo 'bruh';
 ?>
