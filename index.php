@@ -7,5 +7,5 @@ if ( isset( $_POST['submit'] ) ) {
 }
 }
 init();
-
+echo 'bruh';
 ?>
