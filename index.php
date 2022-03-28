@@ -1,5 +1,4 @@
 <?php
-
 if ( isset( $_POST['submit'] ) ) {
         $username = $_POST['user'];
         $password = $_POST['user_pass'];
@@ -10,7 +9,6 @@ if ( isset( $_POST['submit'] ) ) {
         }
         else {
                 echo 'Invalid Username or Password! Try Again!';
-                header('Location:index.php');
         }
 }
 ?>
