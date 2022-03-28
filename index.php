@@ -1,8 +1,9 @@
 <?php
 if ( isset( $_POST['submit'] ) ) {
-        $firstname = $_POST['user'];
-        $lastname = $_POST['user_pass'];
-        echo 'Your name is ' . $lastname .' ' . $firstname;
+        $username = $_POST['user'];
+        $password = $_POST['user_pass'];
+        echo 'Your name is ' . $username;
+        echo 'Your password is ' . $password;
 }
 echo 'bruh';
 ?>
