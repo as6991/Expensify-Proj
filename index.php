@@ -10,6 +10,7 @@ if ( isset( $_POST['submit'] ) ) {
         }
         else {
                 echo 'Invalid Username or Password! Try Again!';
+                header('Location:index.php');
         }
 }
 ?>
