@@ -5,11 +5,14 @@
     <title>Expensify Take-Home Challenge</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-    <style>
-        .hidden {
-            display : none;
-        }
-    </style>
+
+<script>
+    
+    let el = document.getElementById("transactiontable")
+    el.style.display = "none";
+
+</script>
+
 <body>
     <div id="loginContent">
         <center>
@@ -50,14 +53,14 @@
     </div>
 
     <div id="transactionTable">
-       <label class="hidden" >  <h1>Transactions:</h1> </label>
+        <h1>Transactions:</h1> 
         <table>
 
             <thead>
                 <tr>
-                    <label class="hidden" >  <th>Transaction Date</th>  </label>
-                    <label class="hidden" > <th>Merchant</th> </label>
-                        <label class="hidden" > <th>Amount</th> </label>
+                     <th>Transaction Date</th> 
+                     <th>Merchant</th> 
+                    <th>Amount</th> 
                 </tr>
             </thead>
 
