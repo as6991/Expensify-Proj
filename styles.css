@@ -36,7 +36,7 @@ body{
 }
 
 .Login {
-    background-color: var(--teal);
+    background-color: rgb(38, 19, 143);
     padding: 0.5em 1.5em;
     font-size: 1.0em;
     color: #fff;
