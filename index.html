@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Expensify Take-Home Challenge</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src = "script.js"> </script>
 </head>
 
 <body>
@@ -12,7 +13,8 @@
              <br> <h3>Login Here </h3> </br>
 
 
-                <form action = "index.php" method = "post">
+                <!-- <form action = "index.php" method = "post"> -->
+                    <form class = 'form' id=" myForm" method = "post"> 
                     <table>
                          <tr>
                              <td>
@@ -40,7 +42,7 @@
                                  <br>
 
                                  <input type = "submit" name = "submit"
-                                 value="Login" class="Login" id = "Login" > 
+                                 value="Login" class="Login" id = "Login" onclick="validate()"> 
                                  <!-- Use "EVENTLISTENER" to detect when button is clicked -->
                              </br>
                              </td>
