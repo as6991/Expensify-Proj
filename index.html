@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Expensify Take-Home Challenge</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src = "script.js"> </script>
 </head>
 
 <body>
@@ -14,7 +13,7 @@
 
 
                 <!-- <form action = "index.php" method = "post"> -->
-                    <form class = 'form' id=" myForm" method = "post"> 
+                    <form class ='form' id="myForm" method = "post"> 
                     <table>
                          <tr>
                              <td>
@@ -22,7 +21,7 @@
                                    <h4>  Username: </h4>
                              </td>
                              <td>
-                                 <input type ="text" name = "user" id = "username" >
+                                 <input type ="username" name = "user" id = "username" />
                              </td>
                             </p>
                          </tr>
@@ -32,7 +31,7 @@
                                 <h4> Password:</h4>
                              </td>
                              <td>
-                                 <input type="password" name="user_pass" id = "password">
+                                 <input type="password" name="user_pass" id="password" /> 
                              </td>
                             </p>
                          </tr>
@@ -41,8 +40,7 @@
                              <td>
                                  <br>
 
-                                 <input type = "submit" name = "submit"
-                                 value="Login" class="Login" id = "Login" onclick="validate()"> 
+                                 <button type="submit" name="submit" value="Login" class="Login" id="Login"> Login </button>
                                  <!-- Use "EVENTLISTENER" to detect when button is clicked -->
                              </br>
                              </td>
@@ -80,28 +78,29 @@
     <!-- Javascript Files, we've included JQuery here, feel free to use at your discretion. Add whatever else you may need here too. -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script>
+        let el = document.getElementById("transactionTable")
+        el.style.display = "none";
+        let e4 = document.getElementById("text")
+        e4.style.display = "none";
+        let e2 = document.getElementById("transactionForm")
+        e2.style.display = "none";
+        
+        // if (user == "expensifytest@mailinator.com" && user_pass == "hire_me"){
+        //     let e3 = document.getElementById("loginContent")
+        //          e3.style.display = "none";
+        //     let el = document.getElementById("transactionTable")
+        //          el.style.display = "inline";
+        //     let e4 = document.getElementById("text")
+        //          e4.style.display = "inline";
+        //     let e2 = document.getElementById("transactionForm")
+        //          e2.style.display = "inline";
+        // }
+    
+    </script>
 
 </body>
 
-<script>
-    let el = document.getElementById("transactionTable")
-    el.style.display = "none";
-    let e4 = document.getElementById("text")
-    e4.style.display = "none";
-    let e2 = document.getElementById("transactionForm")
-    e2.style.display = "none";
-    
-    if (user == "expensifytest@mailinator.com" && user_pass == "hire_me"){
-        let e3 = document.getElementById("loginContent")
-             e3.style.display = "none";
-        let el = document.getElementById("transactionTable")
-             el.style.display = "inline";
-        let e4 = document.getElementById("text")
-             e4.style.display = "inline";
-        let e2 = document.getElementById("transactionForm")
-             e2.style.display = "inline";
-    }
 
-</script>
 
 </html>

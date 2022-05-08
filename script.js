@@ -1,40 +1,34 @@
-//  fetch('https://www.expensify.com/api?command=Authenticate', {
-//     method: 'POST', /**Used to create a new user */
-//     headers: {   /** Changes formatting of code */                       
-//         'Content-Type' : 'application/json'
-//     },
-//     body: JSON.stringify ({ /** Convert javascript to json string 
-//                             this also is used to display data */
-//         name:'User 1'
-//     })
-// })
-//     .then(res => {      /** checks the response of the fetch */
-//         if (res.ok) {
-//             console.log("Success")
-//             return res.json()
+const Logn = document.getElementById('Login');
+var AuthToken;
+var isLoginVisible = true;
+Logn.addEventListener("click", async (ev) => {
+    ev.preventDefault();
+    const USER = document.getElementById('username').value;
+    const PASS = document.getElementById('password').value;
+    try {
+        console.log(USER);
+        console.log(PASS);
+        let url = `https://www.expensify.com/api?command=Authenticate&partnerName=applicant&partnerPassword=d7c3119c6cdab02d68d9&partnerUserID=${USER}&partnerUserSecret=${PASS}` 
+        const response = await fetch(url, {
+            method: 'GET',
+        });
+        console.log(response);
+        if (!response.ok){
+            throw new Error(`HTTP error : ${response.status}`);
+        }
+        const json = await response.json();
+        AuthToken = json.authToken;
 
-//         }   else {
-//             console.log("Not Success")
-//         }
-//     })
-//     .then(data => console.log(data))    /** displays the data */
-//     .catch(error => console.log('ERROR')) 
-const myForm = document.getElementsById('myForm');
-
-myForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-    const searchParams =  new URLSearchParams();
-
-    fetch('index.php', {
-        method: 'post',
-        body: formData
-    }).then(function(response) {
-        return response.text();
-    }).then(function (text) {
-        console.log(text);
-    }).catch(function(error) {
-        console.error(error);
-    })
+        if (response.ok == true) {
+            //unhide and hide stuff
+        }
+    }
+    catch(error) {
+        console.error(`Invalid Username or Password:  ${error}`);
+    }
 });
+console.log(Logn);
+
+
+
+
