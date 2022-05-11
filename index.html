@@ -35,11 +35,11 @@
                              </td>
                             </p>
                          </tr>
+                         <h5> <span id="login_failed"> </span> </h5>
                          <body>
                          <tr>
                              <td>
                                  <br>
-
                                  <button type="submit" name="submit" value="Login" class="Login" id="Login"> Login </button>
                                  <!-- Use "EVENTLISTENER" to detect when button is clicked -->
                              </br>
@@ -55,12 +55,15 @@
     <div id="transactionTable">
         <h1>Transactions:</h1> 
         <table>
-
             <thead>
                 <tr>
-                     <p id = "text"><th>Transaction Date</th> </p>
-                     <p id = "text"></p><th>Merchant</th> </p>
-                     <p id = "text"></p><th>Amount</th></p>
+                    <p id = "text"><th>Transaction Date</th></p>
+                </tr>
+                <tr>
+                    <p id = "text"><th>Merchant</th> </p>
+                </tr>
+                <tr>
+                    <p id = "text"><th>Amount</th> </p>
                 </tr>
             </thead>
 
@@ -85,18 +88,6 @@
         e4.style.display = "none";
         let e2 = document.getElementById("transactionForm")
         e2.style.display = "none";
-        
-        // if (user == "expensifytest@mailinator.com" && user_pass == "hire_me"){
-        //     let e3 = document.getElementById("loginContent")
-        //          e3.style.display = "none";
-        //     let el = document.getElementById("transactionTable")
-        //          el.style.display = "inline";
-        //     let e4 = document.getElementById("text")
-        //          e4.style.display = "inline";
-        //     let e2 = document.getElementById("transactionForm")
-        //          e2.style.display = "inline";
-        // }
-    
     </script>
 
 </body>
