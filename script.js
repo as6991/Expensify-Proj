@@ -1,7 +1,7 @@
 // Login Authentication Code //
 const Logn = document.getElementById('Login'); // grabs the entire Login button node 
 var AuthToken;
-var transactionList =  [];
+const transactionList = new String();
 var transactions = {};
 Logn.addEventListener("click", async (ev) => { // creates event listener on submit button to perform function 
     ev.preventDefault();
