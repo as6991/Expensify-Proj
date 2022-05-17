@@ -2,7 +2,25 @@
 const Logn = document.getElementById('Login'); // grabs the entire Login button node 
 var AuthToken;
 const transactionList = new String();
-var transactions = {};
+var Transactions;
+
+async function loadIntoTable(url, table){
+    const tableHead = table.querySelector("thead");
+    const tablebody = table.querySelector("tbody");
+    const respo = await fetch(url, {
+        method: 'GET',
+    });
+    if (!respo.ok) {
+        throw new Error(`HTTP error : ${response.status}`);  // displays error if response from fetch fails
+    }
+    const data = await respo.json(); // saves response as json
+    // Transactions = bruh.transaction;
+    // const data = respo.json();  
+    // Transactions = bruh.transaction;
+    // console.log(Transactions);
+    console.log(data);
+}
+
 Logn.addEventListener("click", async (ev) => { // creates event listener on submit button to perform function 
     ev.preventDefault();
     const USER = document.getElementById('username').value; // grabs user input
@@ -34,7 +52,8 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
             e2.style.display = "inline";
 
             // sets up transaction list
-            let url_2 = `https://www.expensify.com/api?command=Get&authToken=${AuthToken}&returnValueList=${transactionList}`
+            let url_2 = `https://www.expensify.com/api?command=Get&authToken=${AuthToken}&returnValueList=transactionList`
+            // loadIntoTable(url_2, document.querySelector("table"))
             const respo = await fetch(url_2, {
                 method: 'GET',
             });
@@ -43,14 +62,16 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
                 throw new Error(`HTTP error : ${respo.status}`);  // displays error if response from fetch fails
             }
             const json = await respo.json();
-            transactions = json.transaction;
-            console.log(transactions);
+            Transactions = json.transaction;
+            console.log(Transactions);
+            console.log(json);
         }
     }
     catch (error) { // logs error in console if error detected 
         console.error(`Invalid Username or Password:  ${error}`);
     }
     console.log(AuthToken);
+
 });
 
 
