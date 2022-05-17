@@ -62,7 +62,7 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
                 throw new Error(`HTTP error : ${respo.status}`);  // displays error if response from fetch fails
             }
             const json = await respo.json();
-            Transactions = json.transaction;
+            Transactions = json.transactionList;
             console.log(Transactions);
             console.log(json);
         }
@@ -71,6 +71,7 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
         console.error(`Invalid Username or Password:  ${error}`);
     }
     console.log(AuthToken);
+    console.log(transactionList);
 
 });
 
