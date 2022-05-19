@@ -4,21 +4,30 @@ var AuthToken;
 const transactionList = new String();
 var Transactions;
 
-async function loadIntoTable(url, table){
-    const tableHead = table.querySelector("thead");
-    const tablebody = table.querySelector("tbody");
-    const respo = await fetch(url, {
-        method: 'GET',
-    });
-    if (!respo.ok) {
-        throw new Error(`HTTP error : ${response.status}`);  // displays error if response from fetch fails
+// async function loadInData(url, table){
+//     const tableHead = table.querySelector("thead");
+//     const tableBody = table.querySelector("tbody");
+//     const respo = await fetch(url, {
+//         method: 'GET',
+//     });
+
+//     if (!respo.ok) {
+//         throw new Error(`HTTP error : ${respo.status}`);  // displays error if response from fetch fails
+//     }
+//     const json = await respo.json();
+//     Transactions = json.transactionList;
+//     console.log(Transactions);
+//     return Transactions;
+// }
+
+function populateTable (dataT, table) {
+    const tableBody = table.querySelector("tbody");
+    tableBodyhanzo.innerHTML = '';
+    for (let dat of dataT ) {
+        let row = table.insertRow(-1);
+        let amount = row.insertCell(0);
+        amount.innerHTML = dat.amount;
     }
-    const data = await respo.json(); // saves response as json
-    // Transactions = bruh.transaction;
-    // const data = respo.json();  
-    // Transactions = bruh.transaction;
-    // console.log(Transactions);
-    console.log(data);
 }
 
 Logn.addEventListener("click", async (ev) => { // creates event listener on submit button to perform function 
@@ -53,25 +62,23 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
 
             // sets up transaction list
             let url_2 = `https://www.expensify.com/api?command=Get&authToken=${AuthToken}&returnValueList=transactionList`
-            // loadIntoTable(url_2, document.querySelector("table"))
+            // loadInData(url_2, document.querySelector("table"))
             const respo = await fetch(url_2, {
                 method: 'GET',
             });
-            console.log(respo);
+        
             if (!respo.ok) {
                 throw new Error(`HTTP error : ${respo.status}`);  // displays error if response from fetch fails
             }
             const json = await respo.json();
             Transactions = json.transactionList;
-            console.log(Transactions);
-            console.log(json);
+            populateTable(Transactions);
         }
     }
     catch (error) { // logs error in console if error detected 
         console.error(`Invalid Username or Password:  ${error}`);
     }
     console.log(AuthToken);
-    console.log(transactionList);
 
 });
 
