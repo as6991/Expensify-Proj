@@ -20,15 +20,15 @@ var Transactions;
 //     return Transactions;
 // }
 
-function populateTable (dataT, table) {
-    const tableBody = table.querySelector("tbody");
-    tableBodyhanzo.innerHTML = '';
-    for (let dat of dataT ) {
-        let row = table.insertRow(-1);
-        let amount = row.insertCell(0);
-        amount.innerHTML = dat.amount;
-    }
-}
+// function populateTable (dataT, table) {
+//     const tableBody = table.querySelector("tbody");
+//     tableBodyhanzo.innerHTML = '';
+//     for (let dat of dataT ) {
+//         let row = table.insertRow(-1);
+//         let amount = row.insertCell(0);
+//         amount.innerHTML = dat.amount;
+//     }
+// }
 
 Logn.addEventListener("click", async (ev) => { // creates event listener on submit button to perform function 
     ev.preventDefault();
@@ -72,7 +72,34 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
             }
             const json = await respo.json();
             Transactions = json.transactionList;
-            populateTable(Transactions);
+            console.log(Transactions);
+
+            //Saves Transaction dates into String
+            const dot = Transactions.map(date => {
+                return `<p>Transaction Date: ${date.inserted}</p>` 
+            }).join('');
+            //Saves Merchant names into String
+            const merch = Transactions.map(mercha => {
+                return `<p>Merchant: ${mercha.merchant}</p>`
+            }).join('');
+            //Saves Transaction amount into String
+            const amoun = Transactions.map(amo => {
+                return `<p>Amount: ${amo.amount}</p>`
+            }).join('');
+            //Saves cardID into String
+            const carID = Transactions.map(ca => {
+                return `<p>Amount: ${ca.cardID}</p>`
+            }).join('');
+            //Saves transactionID into String
+            const traID = Transactions.map(tra => {
+                return `<p>Amount: ${tra.transactionID}</p>`
+            }).join('');
+
+            console.log(dot); 
+            console.log(merch);
+            console.log(amoun);
+            console.log(carID);
+            console.log(traID);
         }
     }
     catch (error) { // logs error in console if error detected 
