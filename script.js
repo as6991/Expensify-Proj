@@ -1,34 +1,11 @@
 // Login Authentication Code //
 const Logn = document.getElementById('Login'); // grabs the entire Login button node 
+const tableHead = document.querySelector("thead");
+const tableBody = document.querySelector("tbody");
 var AuthToken;
 const transactionList = new String();
 var Transactions;
-
-// async function loadInData(url, table){
-//     const tableHead = table.querySelector("thead");
-//     const tableBody = table.querySelector("tbody");
-//     const respo = await fetch(url, {
-//         method: 'GET',
-//     });
-
-//     if (!respo.ok) {
-//         throw new Error(`HTTP error : ${respo.status}`);  // displays error if response from fetch fails
-//     }
-//     const json = await respo.json();
-//     Transactions = json.transactionList;
-//     console.log(Transactions);
-//     return Transactions;
-// }
-
-// function populateTable (dataT, table) {
-//     const tableBody = table.querySelector("tbody");
-//     tableBodyhanzo.innerHTML = '';
-//     for (let dat of dataT ) {
-//         let row = table.insertRow(-1);
-//         let amount = row.insertCell(0);
-//         amount.innerHTML = dat.amount;
-//     }
-// }
+var head = ["Transaction Dates", "Merchant", "Amount", "CardID", "TransactionID"];
 
 Logn.addEventListener("click", async (ev) => { // creates event listener on submit button to perform function 
     ev.preventDefault();
@@ -94,6 +71,17 @@ Logn.addEventListener("click", async (ev) => { // creates event listener on subm
             const traID = Transactions.map(tra => {
                 return `<p>Amount: ${tra.transactionID}</p>`
             }).join('');
+
+            //Clear the table
+            tableHead.innerHTML = "<tr></tr>";
+            tableBody.innerHTML = "";
+
+            //Populate the headers
+            for (const headerText of head) {
+                const headerElement = document.createElement("th");
+                headerElement.textContent = headerText;
+                tableHead.querySelector("tr").appendChild(headerElement);
+            }
 
             console.log(dot); 
             console.log(merch);
